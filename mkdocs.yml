@@ -11,3 +11,7 @@ nav:
     - 'getting-started.md'
     - 'using-tasmomanager.md'
     - 'troubleshooting.md'
+
+plugins:
+  - search
+  - git-committers

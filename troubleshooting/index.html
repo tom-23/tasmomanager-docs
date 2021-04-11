@@ -119,19 +119,19 @@
 <ul>
 <li>
 <p>Tasmota version that supports device discovery</p>
-<p>Make sure that the tasmota version installed on your devices, includes the new home assistant discovery protocol. If you have <code>tasmota-lite</code> installed, you will NOT have home assistant discovery compiled by default.</p>
+<p>Make sure that the tasmota version installed on your devices includes the new home assistant discovery protocol. If you have <code>tasmota-lite</code> installed, you will NOT have home assistant discovery compiled by default.</p>
 </li>
 <li>
 <p><code>SetOption19</code> set to <code>0</code></p>
 <p>Have <code>SetOption19</code> set to <code>0</code> to ensure the new home assistant discovery protocol is used. You can change this in the WebUI by opening up the console and entering <code>SetOption19 0</code>. The device should start to appear in the device list after a few seconds.</p>
 </li>
 <li>
-<p>MQTT Server which allows for client Read/Write access</p>
+<p>MQTT Server which prevents read / write access</p>
 <p>TasmoManager needs to read data from the <code>tasmota/discovery</code>. Make sure you are able to Read/Write data using an MQTT client such as MQTTExplorer. Make sure your MQTT server isn't sonoff-adapter (for iobroker) as it doesn't allow for client read access.</p>
 </li>
 <li>
 <p><code>tasmota/discovery</code> topic deleted</p>
-<p>The tasmota discovery topic could of been deleted. This can easily by fixed by restarting the devices connected to the MQTT server.</p>
+<p>The tasmota discovery topic could have been deleted. This can easily be fixed by restarting the devices connected to the MQTT server.</p>
 </li>
 </ul>
 <h2 id="old-devices-still-exist">Old devices still exist</h2>

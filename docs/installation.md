@@ -4,7 +4,7 @@ Thanks for downloading TasmoManager! Since one of the main goals of this project
 ## macOS
 On macOS, simply download the .dmg release file, open it up and click and drag the app package into the Applications directory. When opening the app from the launchpad, you may encounter a pop-up, preventing you from opening TasmoManager. To work around this, right-click and open the app from the Applications directory.
 
-You can also download the .pkg file and follow the onscreen instructions when installing. Be sure to right-click and open the pkg otherwise you won't get an option allowing you to open the file
+You can also download the .pkg file and follow the on screen instructions when installing. Be sure to right-click and open the pkg otherwise you won't get an option allowing you to open the file
 
 ## Windows
 Download the installer executable and run. Windows might pop up a smart screen message (in the process of getting that removed), if so just click on More Info > Allow. Then, follow the on-screen instructions.

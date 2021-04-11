@@ -1,0 +1,13 @@
+site_name: TasmoManager
+theme:
+    name: bootstrap4
+    custom_dir: tasmomanager_theme
+markdown_extensions:
+  - meta
+
+nav:
+    - 'index.md'
+    - 'installation.md'
+    - 'getting-started.md'
+    - 'using-tasmomanager.md'
+    - 'troubleshooting.md'

@@ -1,6 +1,3 @@
----
-icon: ../assets/24_about_square.svg
----
 # Welcome
 
 [![Build status](https://ci.appveyor.com/api/projects/status/cr51v0y2shticljs?svg=true)](https://ci.appveyor.com/project/tom-23/tasmomanager)

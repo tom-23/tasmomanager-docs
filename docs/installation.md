@@ -1,6 +1,3 @@
----
-icon: ../assets/24_gear_square.svg
----
 # Installation
 Thanks for downloading TasmoManager! Since one of the main goals of this project was to make it beginner-friendly, I've created a windows installer and macOS .dmg for easy installation. 
 

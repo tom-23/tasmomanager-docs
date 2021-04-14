@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap');
 
 .bg-dark {
-    background-color: #9819B0 !important;
+    background: linear-gradient(#BF1E94, #bd15cc)
 }
 
 body {

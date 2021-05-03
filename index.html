@@ -34,23 +34,23 @@
     <script src="js/base.js"></script> 
     </head>
 
-    <body class="homepage ">
+    <body class="homepage bg-dark">
 
       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 	<div class="container">
 	<a class="navbar-brand" href=".">
         <img src="./assets/logo.svg" alt="" style="height: 32px;">
     </a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navbar" aria-expanded="  false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
 	</button>
 
-	<div class="collapse navbar-collapse">
+	<div class="collapse navbar-collapse" id="navigation">
           <!-- Main navigation -->
           <nav class="nav">
             <ul class="navbar-nav">
               <li class="active">
-                <a class="nav-link" href=".">Welcome</a>
+                <a class="nav-link" href=".">Home</a>
               </li>
               <li >
                 <a class="nav-link" href="installation/">Installation</a>
@@ -76,46 +76,63 @@
           </ul>
 	</div>
 	</div>
-      </nav><div id="content" class="container">
+      </nav><div id="content" class="container text-white">
         
       <div class="row">
         <div class="col-md-3"><div class="navbar-light navbar-expand-md hidden-print sticky-top sticky-offset" role="complementary">
     <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse"
+        <button type="button" class="navbar-toggler mb-4 collapsed" data-toggle="collapse" data-target="#toc-collapse"
             title="Table of Contents">
             <span class="fa fa-angle-down"></span>
         </button>
     </div>
 
-    <div id="toc-collapse" class="navbar-collapse collapse card">
-        <ul class="nav flex-column bs-sidenav">
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-dark rounded-lg mb-4">
+        <ul class="nav flex-column bs-sidenav mr-auto pl-4">
 
             <li class="nav-item main">
-                <a class="nav-link text-dark" href="#welcome">
+                <a class="nav-link text-white" href="#tasmomanager">
                     <div class="row">
                         
                     <div class="span4">
-                        Welcome
+                        TasmoManager
                     </div>
                     
                     </div>
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#found-a-bug" class="nav-link text-muted ml-4">Found a Bug</a>
+                <a href="#found-a-bug" class="nav-link text-light ml-4">Found a Bug</a>
+            </li>
+            <li class="nav-item">
+                <a href="#got-a-feature" class="nav-link text-light ml-4">Got a Feature?</a>
+            </li>
+            <li class="nav-item">
+                <a href="#useful-links" class="nav-link text-light ml-4">Useful links</a>
             </li>
         </ul>
     </div>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="welcome">Welcome</h1>
+<p><img alt="TasmoManager App Icon" src="assets/icon.png" /></p>
+<h1 id="tasmomanager">TasmoManager</h1>
 <p><a href="https://ci.appveyor.com/project/tom-23/tasmomanager"><img alt="Build status" src="https://ci.appveyor.com/api/projects/status/cr51v0y2shticljs?svg=true" /></a>
 <img alt="GitHub commits since latest release (by SemVer including pre-releases)" src="https://img.shields.io/github/commits-since/tom-23/tasmomanager/latest?include_prereleases" />
 <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/tom-23/tasmomanager" /></p>
 <p>Welcome to the TasmoManager docs! Here, you will find information/help on getting started, installation and troubleshooting.</p>
 <h2 id="found-a-bug">Found a Bug</h2>
 <p>Submit it <a href="https://github.com/tom-23/TasmoManager/issues">here</a> and I'll do my best to get it sorted!</p>
+<h2 id="got-a-feature">Got a Feature?</h2>
+<p>I'm always looking to make TasmoManager better. Submit it via GitHub issues (link <a href="https://github.com/tom-23/TasmoManager/issues">here</a>) and I'll look into getting it implemented!</p>
+<h2 id="useful-links">Useful links</h2>
+<p>Here is a list of useful links that may be of interest:</p>
+<ul>
+<li><a href="https://github.com/tom-23/TasmoManager">GitHub Page</a></li>
+<li><a href="https://github.com/tom-23/TasmoManager/releases">Latest Releases</a></li>
+<li><a href="https://ci.appveyor.com/project/tom-23/tasmomanager">CI / AppVeyor</a></li>
+<li><a href="https://github.com/arendst/Tasmota">Tasmota</a></li>
+</ul>
 
 <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
 
@@ -210,5 +227,5 @@
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2021-04-16 10:42:11.556204+00:00
+Build Date UTC : 2021-05-03 14:36:13.389088+00:00
 -->

@@ -1,12 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 .bg-dark {
-    background: linear-gradient(#BF1E94, #bd15cc)
+    background-color: #040404ad !important;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
 }
 
 body {
-    font-family: rubik;
+    font-family: Inter;
     /*    padding-top: 70px;*/
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2, h3, h4 {
+    font-weight: 600;
+}
+
+a {
+    color: #66e0ff;
+}
+
+code {
+    color: #78ff57 !important;
+}
+
+.nav {
+    font-weight: 600;
+}
+
+.navbar-toggler {
+    border: none;
+    color: white !important;
+    
+}
+
+.hljs {
+    color: white !important;
+    background-color: #040404ad !important;
+    border-radius: 15px;
+    padding: 20px !important;
 }
 
 .metadata {
@@ -80,7 +114,6 @@ body[dir=rtl] .metadata.page-metadata .last-updated-text, body[dir=rtl] .metadat
 ul.nav li.main {
     font-weight: 500;
 }
-
 
 .dropdown-submenu {
     position: relative;
@@ -199,6 +232,11 @@ ul.nav li.main {
 
 #toc-collapse {
     border: none;
+    
+}
+
+.rounded-lg {
+    border-radius: 15px;
 }
 
 /* Show and affix the side nav when space allows it */

@@ -34,23 +34,23 @@
     <script src="../js/base.js"></script> 
     </head>
 
-    <body class="">
+    <body class="bg-dark">
 
       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 	<div class="container">
 	<a class="navbar-brand" href="..">
         <img src="../assets/logo.svg" alt="" style="height: 32px;">
     </a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navbar" aria-expanded="  false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
 	</button>
 
-	<div class="collapse navbar-collapse">
+	<div class="collapse navbar-collapse" id="navigation">
           <!-- Main navigation -->
           <nav class="nav">
             <ul class="navbar-nav">
               <li >
-                <a class="nav-link" href="..">Welcome</a>
+                <a class="nav-link" href="..">Home</a>
               </li>
               <li class="active">
                 <a class="nav-link" href="./">Installation</a>
@@ -76,22 +76,22 @@
           </ul>
 	</div>
 	</div>
-      </nav><div id="content" class="container">
+      </nav><div id="content" class="container text-white">
         
       <div class="row">
         <div class="col-md-3"><div class="navbar-light navbar-expand-md hidden-print sticky-top sticky-offset" role="complementary">
     <div class="navbar-header">
-        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse"
+        <button type="button" class="navbar-toggler mb-4 collapsed" data-toggle="collapse" data-target="#toc-collapse"
             title="Table of Contents">
             <span class="fa fa-angle-down"></span>
         </button>
     </div>
 
-    <div id="toc-collapse" class="navbar-collapse collapse card">
-        <ul class="nav flex-column bs-sidenav">
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-dark rounded-lg mb-4">
+        <ul class="nav flex-column bs-sidenav mr-auto pl-4">
 
             <li class="nav-item main">
-                <a class="nav-link text-dark" href="#installation">
+                <a class="nav-link text-white" href="#installation">
                     <div class="row">
                         
                     <div class="span4">
@@ -102,16 +102,28 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#macos" class="nav-link text-muted ml-4">macOS</a>
+                <a href="#macos" class="nav-link text-light ml-4">macOS</a>
             </li>
             <li class="nav-item">
-                <a href="#windows" class="nav-link text-muted ml-4">Windows</a>
+                <a href="#windows" class="nav-link text-light ml-4">Windows</a>
             </li>
             <li class="nav-item">
-                <a href="#linux" class="nav-link text-muted ml-4">Linux</a>
+                <a href="#linux" class="nav-link text-light ml-4">Linux</a>
             </li>
             <li class="nav-item">
-                <a href="#updating" class="nav-link text-muted ml-4">Updating</a>
+                <a href="#updating" class="nav-link text-light ml-4">Updating</a>
+            </li>
+
+            <li class="nav-item main">
+                <a class="nav-link text-white" href="#building">
+                    <div class="row">
+                        
+                    <div class="span4">
+                        Building
+                    </div>
+                    
+                    </div>
+                </a>
             </li>
         </ul>
     </div>
@@ -143,6 +155,54 @@ from the <a href="https://github.com/tom-23/TasmoManager/releases">GitHub releas
 </code></pre>
 <h2 id="updating">Updating</h2>
 <p>You can update TasmoManager the same way in macOS or Windows. Firstly, head over to the app's preferences and click on "Software Update". Next, select the update channel you would like to receive updates from (default is "Stable"). If there is a new update to be installed, a green "Begin Software Update" button should appear. Once pressed, TasmoManager will download the update and begin installing it onto your system. Please ensure you enter your administrator password when you are presented to do so otherwise the update process will not begin. (This only applies to TasmoManager v1.0.0-alpha.5 and above).</p>
+<h1 id="building">Building</h1>
+<p><strong>Only attempt if you have some knowledge when working with CMake / C++ projects! I'll try to go in-depth in this tutorial but it's not 100% foolproof.</strong></p>
+<p>Optionally, you can build TasmoManager from source. You'll need the following prerequisites:</p>
+<ul>
+<li>Git SCM</li>
+<li>Perl</li>
+<li>CMake build system</li>
+<li>A Windows, macOS or Linux computer</li>
+<li>A C++ 17 compatible compiler (clang, MSVC, GCC)</li>
+<li>Qt 5.12.0 or newer (<strong>Qt 6 is currently not supported</strong>)</li>
+<li>Qt <code>bin</code> directory in your system PATH</li>
+<li>OpenSSL</li>
+</ul>
+<p>The following prerequisites are optional:</p>
+<ul>
+<li>InnoSetup (to create a Windows installer package)</li>
+<li>create-dmg (to create a macOS DMG disk image. Install: <code>npm install --global create-dmg</code>)</li>
+<li>CPack (to create Linux Packages)</li>
+</ul>
+<p>Firstly take note of you're Qt install path. On Windows, Qt installs to the <code>C:\Qt</code> directory followed by the Qt version installed. On macOS and Linux, Qt should be installed in you're home area. On macOS, Qt would be installed at: <code>/Users/username/Qt</code> and on Linux: <code>/home/username/Qt</code>.</p>
+<p>Next, clone the TasmoManager repo and clone the submodules recursively:</p>
+<pre><code class="language-bash">git clone https://github.com/tom-23/TasmoManager.git
+git submodule update --init --recursive
+</code></pre>
+<p>First we need to build and install qmqtt. Enter the qmqtt directory and create an empty build folder:</p>
+<pre><code class="language-bash">cd lib/qmqtt
+mkdir build &amp;&amp; cd build
+</code></pre>
+<p>Assuming you have qmake in your path, configure the project and build:</p>
+<pre><code class="language-bash">qmake ..
+make -j4
+</code></pre>
+<p>Once the project has successfully built, install via the following command:</p>
+<pre><code class="language-bash">sudo make install
+</code></pre>
+<p><strong>You'll only need to compile and install QMQTT once</strong></p>
+<p>Inside the TasmoManager repo directory, create a new folder named <code>build</code> and enter it:</p>
+<pre><code class="language-bash">mkdir build &amp;&amp; cd build/
+</code></pre>
+<p>Make sure you have set the OPENSSL_ROOT_DIR system variable to your OpenSSL installation directory. On macOS, the command would look something like this:</p>
+<pre><code class="language-bash">export OPENSSL_ROOT_DIR=&quot;/usr/local/opt/openssl@1.1&quot;
+</code></pre>
+<p>Run <code>CMake</code> passing the following parameters substituting <code>path_to_qt</code> with the path to your qt installation:</p>
+<pre><code class="language-bash">cmake .. -DCMAKE_PREFIX_PATH=&quot;path_to_qt&quot;
+</code></pre>
+<p>Next, build using the make command:</p>
+<pre><code class="language-bash">make -j4
+</code></pre>
 
 <ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
 

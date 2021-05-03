@@ -38,3 +38,78 @@ sudo rpm -i tasmomanager_20210412-v1.0.0-alpha.11_amd64.rpm --no-deps
 
 ## Updating
 You can update TasmoManager the same way in macOS or Windows. Firstly, head over to the app's preferences and click on "Software Update". Next, select the update channel you would like to receive updates from (default is "Stable"). If there is a new update to be installed, a green "Begin Software Update" button should appear. Once pressed, TasmoManager will download the update and begin installing it onto your system. Please ensure you enter your administrator password when you are presented to do so otherwise the update process will not begin. (This only applies to TasmoManager v1.0.0-alpha.5 and above).
+
+# Building
+**Only attempt if you have some knowledge when working with CMake / C++ projects! I'll try to go in-depth in this tutorial but it's not 100% foolproof.**
+
+Optionally, you can build TasmoManager from source. You'll need the following prerequisites:
+
+- Git SCM
+- Perl
+- CMake build system
+- A Windows, macOS or Linux computer
+- A C++ 17 compatible compiler (clang, MSVC, GCC)
+- Qt 5.12.0 or newer (**Qt 6 is currently not supported**)
+- Qt `bin` directory in your system PATH
+- OpenSSL
+
+The following prerequisites are optional:
+
+- InnoSetup (to create a Windows installer package)
+- create-dmg (to create a macOS DMG disk image. Install: `npm install --global create-dmg`)
+- CPack (to create Linux Packages)
+
+Firstly take note of you're Qt install path. On Windows, Qt installs to the `C:\Qt` directory followed by the Qt version installed. On macOS and Linux, Qt should be installed in you're home area. On macOS, Qt would be installed at: `/Users/username/Qt` and on Linux: `/home/username/Qt`.
+
+Next, clone the TasmoManager repo and clone the submodules recursively:
+
+```bash
+git clone https://github.com/tom-23/TasmoManager.git
+git submodule update --init --recursive
+``` 
+
+First we need to build and install qmqtt. Enter the qmqtt directory and create an empty build folder:
+
+```bash
+cd lib/qmqtt
+mkdir build && cd build
+```
+
+Assuming you have qmake in your path, configure the project and build:
+
+```bash
+qmake ..
+make -j4
+```
+
+Once the project has successfully built, install via the following command:
+
+```bash
+sudo make install
+```
+
+**You'll only need to compile and install QMQTT once**
+
+Inside the TasmoManager repo directory, create a new folder named `build` and enter it:
+
+```bash
+mkdir build && cd build/
+```
+
+Make sure you have set the OPENSSL_ROOT_DIR system variable to your OpenSSL installation directory. On macOS, the command would look something like this:
+
+```bash
+export OPENSSL_ROOT_DIR="/usr/local/opt/openssl@1.1"
+```
+
+Run `CMake` passing the following parameters substituting `path_to_qt` with the path to your qt installation:
+
+```bash
+cmake .. -DCMAKE_PREFIX_PATH="path_to_qt"
+```
+
+Next, build using the make command:
+
+```bash
+make -j4
+```
